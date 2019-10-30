@@ -107,10 +107,10 @@ const init = async () => {
                     return { status : 'delete'}
                 }
                 if(method === 'put'){
-                    const { id , dispengnm,
+                    const { product_id , dispengnm,
                         dispnm, parentdispno } = payload
                     result = await request.db.query('UPDATE PRODUCT SET dispengnm = $2, dispnm=$3, parentdispno=$4 , updated_on = current_timestamp  WHERE product_id = $1;',
-                    [id,dispengnm,dispnm,parentdispno]);
+                    [product_id,dispengnm,dispnm,parentdispno]);
                     return { status : 'update'}
                 }
                 return result 
